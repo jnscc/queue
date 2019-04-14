@@ -1,0 +1,39 @@
+#include "Queue.h"
+#include <stdio.h>
+#include <stdlib.h>
+int init_queue(queue** p)
+{
+	*p = (queue*)malloc(sizeof(queue));
+	if (!(*p))
+		return 0;
+	(*p)->head = (nodep)malloc(sizeof(node));//建立头结点
+	(*p)->head->next = NULL;
+	(*p)->rear = (*p)->head;
+	(*p)->lenth = 0;
+	return 1;
+}
+int push(queue *p)
+{
+	nodep temp;
+	temp = (nodep)malloc(sizeof(node));
+	temp->next = NULL;
+	printf("enter a number:\n");
+	scanf_s("%d", &temp->num);
+	p->rear->next = temp;
+	p->rear = temp;
+	p->lenth++;
+	return 1;
+}
+int pop(queue *p, int *num)
+{
+	if (!get_len(p))
+		return 0;
+	*num = p->head->next->num;
+	p->head->next = p->head->next->next;
+	p->lenth--;
+	return 1;
+}
+int get_len(queue *p)
+{
+	return p->lenth;
+}

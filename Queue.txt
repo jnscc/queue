@@ -1,0 +1,24 @@
+#ifndef _Queue_H
+#define _Queue_H
+
+typedef struct node
+{
+	struct node *next;
+	int num;
+}node, *nodep;
+typedef struct queue
+{
+	nodep head;
+	nodep rear;
+	int lenth;
+}queue;
+
+int init_queue(queue** p);
+int push(queue *p);
+int pop(queue *p, int *num);
+int get_len(queue *p);
+
+
+
+#endif // !_Queue_H
+#pragma once

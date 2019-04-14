@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Queue.h"
+int main()
+{
+	queue *p;
+	int i,num;
+	init_queue(&p);
+	for (i = 0; i <= 2; i++)
+	{
+		push(p);
+	}
+	for (i = 0; i <= 2; i++)
+	{
+		pop(p,&num);
+		printf("%d\n",num);
+	}
+	system("pause");
+}
